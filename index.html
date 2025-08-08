@@ -1,0 +1,30 @@
+---
+layout:     default
+title:      Home
+heading:    "Ateneo Mathematics Society"
+subheading: "Where Everybody Counts"
+permalink:  "/"
+banner:
+  image:    "/assets/images/banners/home.gif"
+  opacity:  0.8
+  height:   750px
+---
+
+<script>
+  function fixBanner() {
+    const bannerDiv = document.querySelector('.page-banner-default');
+    bannerDiv.innerHTML = '';
+    
+    const logoImg = document.createElement('img');
+    logoImg.src = '/assets/images/logo.png';
+    logoImg.alt = 'AMS Logo';
+    logoImg.style.maxHeight = '240px';
+    logoImg.style.width = 'auto';
+    bannerDiv.style.display = 'flex';
+    bannerDiv.style.justifyContent = 'center';
+    bannerDiv.style.alignItems = 'center';
+    bannerDiv.appendChild(logoImg);
+  }
+
+  document.addEventListener('DOMContentLoaded', fixBanner);
+</script>
