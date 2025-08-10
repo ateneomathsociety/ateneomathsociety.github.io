@@ -21,13 +21,21 @@ selection:
 # Website header
 header_transparent: false
 header_pages:
-  - index.html
-  - about.html
-  - news.html
+  - title:      "Home"
+    url:        "/"
+  - title:      "About"
+    url:        "/about"
+    dropdown:
+      - title:  "Departments"
+        url:    "/about/departments"
+      - title:  "Offices"
+        url:    "/about/offices"
+  - title:      "News"
+    url:        "/news"
 
 # Banner default settings
 banner:
-  image:            "assets/images/home.gif"
+  image:            "assets/images/banners/home.gif"
   opacity:          0.5
   background:       "#000000"
   height:           "360px"

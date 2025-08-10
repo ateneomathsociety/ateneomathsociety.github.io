@@ -1,76 +1,162 @@
-.stats-container {
+%container-base {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: space-around;
+
+    gap: 20px;
     padding: 20px;
     border-radius: 8px;
+}
+
+%card-base {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 150px;
+    text-align: center;
+
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: lighten($grey-color, 50%);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        background-color: lighten($grey-color, 45%);
+    }
+}
+
+.stats-container {
+    @extend %container-base;
 }
 
 .stat-card {
-    flex-basis: 150px;
-    flex-grow: 1;
-    flex-shrink: 1;
+    @extend %card-base;
 
-    text-align: center;
-    padding: 20px;
-    background-color: lighten($grey-color, 50%);
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    &:hover .stat-number {
+        color: $theme-color;
+    }
 }
 
-.number {
+.stat-number {
+    line-height: 1;
     font-size: 45px;
     font-weight: bold;
-    color: $theme-color;
-    line-height: 1;
-}
-
-.description {
-    font-size: 15px;
     color: $grey-color-dark;
+
+    transition: color 0.3s ease;
+}
+
+.stat-description {
     margin-top: 10px;
-    text-transform: uppercase;
+
+    line-height: 1.25;
+    font-size: 15px;
     letter-spacing: 1px;
+    text-transform: uppercase;
+    color: lighten($grey-color, 10%);
 }
 
-.departments-container {
+.items-container {
+    @extend %container-base;
+}
+
+.item-card {
+    @extend %card-base;
+
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.department-card {
     flex-basis: 200px;
-    flex-grow: 1;
-    flex-shrink: 1;
-
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    
+    min-height: 80px;
+
+    line-height: 1.25;
+    font-size: 20px;
+    font-weight: bold;
+    color: $grey-color-dark;
+    text-decoration: none;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+
+    img {
+        max-height: 60px;
+        max-width: 90px;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin-bottom: 15px;
+    }
+
+    &:hover {
+        color: $theme-color;
+    }
+}
+
+.posts-container {
+    @extend %container-base;
+
+    gap: 30px;
+    align-items: start;
+}
+
+.post-card {
+    @extend %card-base;
+
+    display: flex;
+    flex-basis: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 
     min-height: 80px;
-    padding: 20px;
+    max-width: 400px;
 
     font-size: 20px;
     font-weight: bold;
     color: $grey-color-dark;
     text-decoration: none;
 
-    background-color: lighten($grey-color, 50%);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    img {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+    }
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
+    .post-card-content {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+    }
 
-.department-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    background-color: lighten($grey-color, 45%);
-    color: $theme-color;
+    span {
+        text-align: center;
+
+        margin: 20px 0;
+
+        line-height: 1.25;
+        font-size: $base-font-size * 1.5;
+        font-weight: bold;
+        color: $grey-color-dark;
+        
+        transition: color 0.3s ease;
+    }
+
+    .post-description {
+        text-align: justify;
+
+        line-height: 1.25;
+        font-size: $small-font-size;
+        font-weight: $base-font-weight;
+        color: lighten($grey-color, 10%);
+    }
+
+    &:hover span {
+        color: $theme-color;
+    }
 }

@@ -13,6 +13,11 @@
 {%- include functions.html func='get_value' -%}
 {% assign subheading = return %}
 
+{%- include functions.html func='log' level='debug' msg='Get icon value' -%}
+{% assign name = 'icon' %}
+{%- include functions.html func='get_value' -%}
+{% assign icon = return %}
+
 {%- include functions.html func='get_banner' -%}
 
 {%- if has_banner -%}
@@ -105,6 +110,13 @@
       {%- endif -%}
     </div>
     <div class="wrapper">
+
+      {%- if icon -%}
+      <div class="page-banner-icon">
+        <img title="{{ page.title | escape }} Icon" src="{{ icon }}" onerror="this.style.display='none'">
+      </div>
+      {%- endif -%}
+
       <div class="page-banner-inner">
 
         {%- if banner_html -%}
@@ -128,4 +140,3 @@
     </div>
   </section>
 {%- endif -%}
-

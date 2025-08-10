@@ -12,6 +12,9 @@ banner:
 
 <script>
   function fixBanner() {
+    const wrapper = document.querySelector('.page-banner .wrapper');
+    wrapper.style.justifyContent = 'center';
+    
     const bannerDiv = document.querySelector('.page-banner-default');
     bannerDiv.innerHTML = '';
     

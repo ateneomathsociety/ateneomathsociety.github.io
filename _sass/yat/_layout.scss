@@ -139,14 +139,79 @@ html {
     line-height: $base-line-height;
     color: $header-text-color;
     transition: 0.1s ease-in-out;
+    
+    &:hover {
+      text-decoration: underline;
+    }
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
       margin-right: 24px;
+    }
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown > .page-link {
+    position: relative;
+    padding-right: 15px;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      border: solid $header-text-color;
+      border-width: 0 2px 2px 0;
+      transform: translateY(-75%) rotate(45deg);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  .dropdown:hover > .page-link::after {
+    transform: translateY(-25%) rotate(-135deg);
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $header-background-color;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px -8px rgba(0,0,0,0.15);
+    z-index: 1;
+    border-radius: 1px;
+
+    .page-link {
+      display: block;
+      padding: 5px 10px 5px 20px;
+      color: $header-text-color;
+      transition: 0.1s ease-in-out;
+      
+      &:first-child {
+        margin-top: 5px;
+      }
+
+      &:last-child {
+        margin-bottom: 10px;
+      }
+
       &:hover {
         text-decoration: underline;
       }
+
+      &::after {
+        display: none;
+      }
     }
+  }
+
+  .dropdown:hover > .dropdown-content {
+    display: block;
   }
 
   @include media-query($on-laptop) {
@@ -186,8 +251,36 @@ html {
     .page-link {
       display: block;
       padding: 5px 10px;
-      color: rgba($header-text-color, 80%);
       margin: 0 25px;
+    }
+    
+    .dropdown > .page-link::after {
+      display: none;
+    }
+    
+    .dropdown {
+      display: block;
+    }
+    
+    .dropdown-content {
+      display: block;
+      position: static;
+      background-color: transparent;
+      box-shadow: none;
+      min-width: unset;
+      margin-top: 0;
+
+      .page-link {
+        padding: 5px 10px 5px 25px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
@@ -621,11 +714,30 @@ html {
 
   .wrapper {
     height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .page-banner-icon {
+    margin-right: 20px;
+    flex-shrink: 0;
+
+    img {
+      position: relative;
+      display: block;
+      max-height: 120px;
+      max-width: 180px;
+      height: auto;
+      width: auto;
+    }
+
+    @include media-query($on-palm) {
+      display: none;
+    }
   }
 
   .page-banner-inner {
-    @include vertical-center(relative);
-
+    position: relative;
     color: $banner-text-color;
     padding: 10px 5px;
     text-shadow: 1px 1px 2px #33333355;
@@ -636,6 +748,7 @@ html {
       > :nth-child(1) {
         @include relative-font-size(3.9);
         letter-spacing: -1px;
+        line-height: 1.15;
         margin-bottom: 0.1em;
         font-weight: normal;
         transition: 0.2s all;
@@ -646,6 +759,7 @@ html {
       }
 
       > :nth-child(2) {
+        line-height: 1.15;
         font-weight: lighter;
         margin-bottom: 0.8em;
         transition: 0.2s all;
