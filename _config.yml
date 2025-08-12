@@ -1,28 +1,25 @@
 # Website metadata
 title:          "Ateneo Mathematics Society"
 email:          "contact@ateneomathsociety.org"
-author:         ""
+author:         "Matt E. Matics"
 copyright:      ""
-description:    "Ateneo Mathematics Society"
+description:    "Ateneo Mathematics Society | Where Everybody Counts"
 baseurl:        "/"
 url:            "https://ateneomathsociety.github.io"
 favicon:        "/assets/images/favicon.png"
 content_width:  "920px"
 sitemap:        false
 debug:          false
+facebook_url:   "https://www.facebook.com/AteneoMathematicsSociety"
+twitter_url:    "https://x.com/AMSinfinitweet"
 
 # Color settings
 theme_color:        "#2E74BA"
 brand_color:        "#ffffff"
-selection:
-  color:            "#bbb"
-  background_color: "#000000"
 
 # Website header
 header_transparent: false
 header_pages:
-  - title:      "Home"
-    url:        "/"
   - title:      "About"
     url:        "/about"
     dropdown:
@@ -30,16 +27,68 @@ header_pages:
         url:    "/about/departments"
       - title:  "Offices"
         url:    "/about/offices"
+      - title:  "Pools & Teams"
+        url:    "/about/pools-teams"
+  - title:      "Projects"
+    url:        "/projects"
+  - title:      "Services"
+    url:        "/services"
+  - title:      "Pages"
+    url:        "/pages"
   - title:      "News"
     url:        "/news"
 
+collections:
+  departments:
+    output:     true
+    permalink:  "/about/departments/:slug"
+  offices:
+    output:     true
+    permalink:  "/about/offices/:slug"
+  pools_teams:
+    output:     true
+    permalink:  "/about/pools-teams/:slug"
+  projects:
+    output:     true
+    permalink:  "/projects/:slug"
+  services:
+    output:     true
+    permalink:  "/services/:slug"
+
+defaults:
+  - scope:
+      path:     ""
+      type:     "departments"
+    values:
+      layout:   "department"
+  - scope:
+      path:     ""
+      type:     "offices"
+    values:
+      layout:   "office"
+  - scope:
+      path:     ""
+      type:     "pools_teams"
+    values:
+      layout:   "pool_team"
+  - scope:
+      path:     ""
+      type:     "projects"
+    values:
+      layout:   "project"
+  - scope:
+      path:     ""
+      type:     "services"
+    values:
+      layout:   "service"
+
 # Banner default settings
 banner:
-  image:            "assets/images/banners/home.gif"
-  opacity:          0.5
-  background:       "#000000"
-  height:           "360px"
+  image:            "/assets/images/banners/default.png"
+  height:           180px
   min_height:       null
+  opacity:          1.00
+  background:       "#2E74BA"
   heading_style:    "font-weight: bold"
   subheading_style: "font-weight: bold"
 

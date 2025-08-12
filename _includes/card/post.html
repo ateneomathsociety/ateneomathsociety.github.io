@@ -1,0 +1,26 @@
+{%- if posts.size > 0 -%}
+<section class="section-base">
+  <h1>{{ posts_head }}</h1>
+  <div class="posts-container">
+    {%- for post in posts -%}
+    {%- if post.include_url -%}
+    <a href="{{ post.external_url | default: (post.url | relative_url) }}" {% if post.external_url %} target='_blank' {% endif %} class="post-card">
+    {%- else -%}
+    <div class="post-card">
+    {%- endif -%}
+      {%- if post.image -%}
+      <img src="{{ post.image | relative_url }}">
+      {%- endif -%}
+      <div class="post-card-content">
+        <span>{{ post.title }}</span>
+        <div class="post-description">{{ post.content | markdownify }}</div>
+      </div>
+    {%- if post.include_url -%}
+    </a>
+    {%- else -%}
+    </div>
+    {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}

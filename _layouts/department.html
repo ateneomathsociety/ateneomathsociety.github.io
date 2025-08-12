@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<br>
+
+{%- include functions.html func='filter_collection' collection=site.pools_teams key='parent' value=page.slug -%}
+{%- assign items = return -%}
+{%- assign pool_count = 0 -%}
+{%- assign team_count = 0 -%}
+{%- for item in items -%}
+  {%- if item.title contains "Pool" -%}
+    {%- assign pool_count = pool_count | plus: 1 -%}
+  {%- endif -%}
+  {%- if item.title contains "Team" -%}
+    {%- assign team_count = team_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign items_head = "Our " -%}
+{%- if pool_count == 1 -%}
+  {%- assign items_head = items_head | append: "Pool" -%}
+{%- elsif pool_count > 1 -%}
+  {%- assign items_head = items_head | append: "Pools" -%}
+{%- endif -%}
+{%- if pool_count > 0 and team_count > 0 -%}
+  {%- assign items_head = items_head | append: " & " -%}
+{%- endif -%}
+{%- if team_count == 1 -%}
+  {%- assign items_head = items_head | append: "Team" -%}
+{%- elsif team_count > 1 -%}
+  {%- assign items_head = items_head | append: "Teams" -%}
+{%- endif -%}
+{%- include card/item.html -%}
+
+{%- include functions.html func='filter_collection' collection=site.projects key='parent' value=page.slug -%}
+{%- assign items = return -%}
+{%- assign items_head = "Our Project" -%}
+{%- if items.size > 1 -%}{%- assign items_head = items_head | append: "s" -%}{%- endif -%}
+{%- include card/item.html -%}
+
+{%- include functions.html func='filter_collection' collection=site.services key='parent' value=page.slug -%}
+{%- assign posts = return -%}
+{%- assign posts_head = "Our Service" -%}
+{%- if posts.size > 1 -%}{%- assign posts_head = posts_head | append: "s" -%}{%- endif -%}
+{%- include card/post.html -%}

@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<br>
+
+{%- include functions.html func='filter_collection' collection=site.projects key='parent' value=page.slug -%}
+{%- assign items = return -%}
+{%- assign items_head = "Our Project" -%}
+{%- if items.size > 1 -%}{%- assign items_head = items_head | append: "s" -%}{%- endif -%}
+{%- include card/item.html -%}
+
+{%- include functions.html func='filter_collection' collection=site.services key='parent' value=page.slug -%}
+{%- assign posts = return -%}
+{%- assign posts_head = "Our Service" -%}
+{%- if posts.size > 1 -%}{%- assign posts_head = posts_head | append: "s" -%}{%- endif -%}
+{%- include card/post.html -%}
+
+{%- assign posts = page.efforts -%}
+{%- assign posts_head = "Our Effort" -%}
+{%- if posts.size > 1 -%}{%- assign posts_head = posts_head | append: "s" -%}{%- endif -%}
+{%- include card/post.html -%}

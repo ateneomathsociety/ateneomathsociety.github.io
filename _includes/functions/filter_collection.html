@@ -1,0 +1,12 @@
+{%- assign key = include.params.key -%}
+{%- assign value = include.params.value -%}
+{%- assign collection = include.params.collection -%}
+
+{%- assign return = "" | split: "," -%}
+
+{%- for item in collection -%}
+  {%- assign item_key = item[key] -%}
+  {%- if item_key contains value -%}
+    {%- assign return = return | push: item -%}
+  {%- endif -%}
+{%- endfor -%}

@@ -299,6 +299,49 @@ html {
     border-top: 1px solid #e0e0e0;
     padding-top: 15px;
   }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-left {
+    color: $grey-color;
+  }
+
+  .footer-right {
+    flex-shrink: 0;
+  }
+  
+  .footer-right a {
+    color: $grey-color;
+    font-size: $base-font-size * 1.5;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-left {
+      text-align: center; 
+    }
+
+    .footer-right a {
+      margin: 0 10px;
+    }
+  }
 }
 
 .copyleft {

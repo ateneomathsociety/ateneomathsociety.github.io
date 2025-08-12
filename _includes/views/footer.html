@@ -3,26 +3,25 @@
 
   <div class="wrapper">
     <div class="site-footer-inner">
-        <!-- {%- assign currentYear = 'now' | date: "%Y" -%}
-        {%- assign copyright = site.copyright
-            | replace: '{currentYear}', currentYear
-            | replace: '{author}', site.author
-            | replace: '(c)', '&copy;'
-            | replace: '(p)', '℗'
-            | replace: '(cleft)', '<span class="copyleft">&copy;</span>'
-        -%}
-      <div>{{ copyright }}</div> -->
-      <div>
-        <span>Room 216 Manuel V. Pangilinan Center for Student Leadership</span><br>
-        <span>Ateneo de Manila University, Katipunan Avenue</span><br>
-        <span>Loyola Heights, Quezon City</span><br>
-        <span><a href="mailto:{{ site.email }}">{{ site.email }}</a></span>
-      </div>
+      <div class="footer-content">
+        <div class="footer-left">
+          <span>Room 216 Manuel V. Pangilinan Center for Student Leadership</span><br>
+          <span>Ateneo de Manila University, Katipunan Avenue</span><br>
+          <span>Loyola Heights, Quezon City</span>
+        </div>
 
-      <!-- <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
-      generator." href="https://jekyllrb.com/" style="color: black;">Jekyll</a> &amp; <a title="Yat, yet
-      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat" style="color: black;">Yat Theme</a>.</div> -->
-      <!-- <div class="footer-col rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></div> -->
+        <div class="footer-right">
+          <a href="mailto:{{ site.email }}" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="{{ site.facebook_url }}" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="{{ site.twitter_url }}" target="_blank" rel="noopener noreferrer" title="Twitter">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

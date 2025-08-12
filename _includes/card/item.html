@@ -1,0 +1,23 @@
+{%- if items.size > 0 -%}
+<section class="section-base">
+  <h1>{{ items_head }}</h1>
+  <div class="items-container">
+    {%- for item in items -%}
+        {%- if item.no_url != true -%}
+        <a href="{{ item.external_url | default: (item.url | relative_url) }}" {% if item.external_url %} target='_blank' {% endif %} class="item-card">
+        {%- else -%}
+        <div class="item-card">
+        {%- endif -%}
+            {%- if item.icon -%}
+            <img src="{{ item.icon | relative_url }}">
+            {%- endif -%}
+            <span>{{ item.title }}</span>
+        {%- if item.no_url != true -%}
+        </a>
+        {%- else -%}
+        </div>
+        {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
