@@ -96,7 +96,7 @@ html {
   margin-right: 50px;
 
   .site-brand-inner {
-    @include relative-font-size(1.25);
+    @include relative-font-size(1.125);
     font-weight: $base-font-weight;
     font-family: 'Roboto Slab', serif;
     letter-spacing: 0.5px;
@@ -121,7 +121,7 @@ html {
 }
 
 .site-nav {
-  @include relative-font-size(1.125);
+  @include relative-font-size(1.0);
   line-height: $header-height;
   position: absolute;
   right: 0;
@@ -289,7 +289,7 @@ html {
  * Site footer
  */
 .site-footer {
-  @include relative-font-size(1.0);
+  @include relative-font-size(0.875);
   text-align: left;
   transition: background-color 0.2s;
 
@@ -317,8 +317,8 @@ html {
   }
   
   .footer-right a {
+    @include relative-font-size(1.25);
     color: $grey-color;
-    font-size: $base-font-size * 1.5;
     margin-left: 20px;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -358,12 +358,12 @@ html {
   }
 
   .post-title {
-    @include relative-font-size(2.625);
+    @include relative-font-size(2.5);
     letter-spacing: -1px;
     line-height: 1;
 
     @include media-query($on-laptop) {
-      @include relative-font-size(2.25);
+      @include relative-font-size(2.125);
     }
   }
 
@@ -388,11 +388,11 @@ html {
 }
 
 .page-heading {
-  @include relative-font-size(2);
+  @include relative-font-size(1.75);
 }
 
 .post-list-heading {
-  @include relative-font-size(1.75);
+  @include relative-font-size(1.50);
 }
 
 /**
@@ -423,18 +423,20 @@ html {
   }
 
   .post-link {
-    @include relative-font-size(1.65);
+    @include relative-font-size(1.50);
     font-weight: $base-font-weight * 1.5;
     color: #333;
   }
 
   .post-meta {
-    color: $grey-color;
-    font-size: $base-font-size;
+    @include relative-font-size(0.875);
+    color: $grey-color;    
     margin-bottom: $spacing-unit * 0.5;
   }
 
   .post-excerpt {
+    @include relative-font-size(0.875);
+
     display: flex;
     position: relative;
     gap: 15px;
@@ -576,18 +578,18 @@ html {
     word-break: normal;
 
     h2 {
-      @include relative-font-size(2);
+      @include relative-font-size(1.75);
 
       @include media-query($on-laptop) {
-        @include relative-font-size(1.75);
+        @include relative-font-size(1.50);
       }
     }
 
     h3 {
-      @include relative-font-size(1.625);
+      @include relative-font-size(1.50);
 
       @include media-query($on-laptop) {
-        @include relative-font-size(1.375);
+        @include relative-font-size(1.25);
       }
     }
 
@@ -627,7 +629,7 @@ html {
 
   .post-related {
     &>*:first-child {
-      @include relative-font-size(1.425);
+      @include relative-font-size(1.25);
       color: #333;
       margin-bottom: 14px;
     }
@@ -637,7 +639,7 @@ html {
     }
 
     .post-link {
-      @include relative-font-size(1.075);
+      @include relative-font-size(1.0);
       color: $grey-color;
 
       &:hover {
@@ -662,7 +664,7 @@ html {
   gap: 36px;
 
   a {
-    @include relative-font-size(1.125);
+    @include relative-font-size(1.0);
     color: $grey-color;
     max-width: 45%;
     display: flex;
@@ -709,7 +711,7 @@ html {
   }
 
   .archives-time {
-    @include relative-font-size(1.5);
+    @include relative-font-size(1.25);
 
     &:not(:first-child) {
       margin-top: 18px;
@@ -718,7 +720,7 @@ html {
   }
 
   .post-meta {
-    font-size: $small-font-size;
+    @include relative-font-size(0.75);
     color: $grey-color;
   }
 }
@@ -789,7 +791,7 @@ html {
       margin: 0;
 
       > :nth-child(1) {
-        @include relative-font-size(3.9);
+        @include relative-font-size(3.0);
         letter-spacing: -1px;
         line-height: 1.15;
         margin-bottom: 0.1em;
@@ -797,7 +799,7 @@ html {
         transition: 0.2s all;
 
         @include media-query($on-palm) {
-          @include relative-font-size(1.975);
+          @include relative-font-size(1.75);
         }
       }
 
@@ -808,7 +810,7 @@ html {
         transition: 0.2s all;
 
         @include media-query($on-palm) {
-          @include relative-font-size(1.175);
+          @include relative-font-size(1.0);
         }
       }
 
@@ -818,7 +820,7 @@ html {
     }
 
     .post-subtitle {
-      @include relative-font-size(1.525);
+      @include relative-font-size(1.25);
       color: #ffffffcc;
       padding-right: 280px;
 
@@ -828,6 +830,8 @@ html {
     }
 
     .post-meta {
+      @include relative-font-size(0.875);
+
       color: #ffffffcc;
       padding-bottom: 1em;
     }
@@ -845,7 +849,7 @@ html {
       }
 
       .post-tag {
-        @include relative-font-size(1.125);
+        @include relative-font-size(1.0);
         display: inline-block;
         text-decoration: none;
         margin: 9px 12px 0 0;
@@ -902,7 +906,7 @@ html {
     margin-bottom: 8px;
     position: relative;
 
-    @include relative-font-size(1.6);
+    @include relative-font-size(1.25);
 
     &:not(:first-child) {
       margin-top: 28px;
@@ -916,7 +920,7 @@ html {
   }
 
   .post-meta {
-    font-size: $small-font-size;
+    @include relative-font-size(0.75);
     color: $grey-color;
   }
 
